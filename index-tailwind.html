@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    /* 颜色 */
+                    colors: {
+                        clifford: '#da373d',
+                        graybg: '#252545',
+                    },
+                    /* 字体 */
+                    fontFamily: {
+                        lato: ['Lato', 'sans-serif'],
+                    },
+                    /* 动画关键帧 */
+                    keyframes: {
+                        sliding: {
+                            '0%': {
+                                left: 0
+                            },
+                            '20%': {
+                                left: 0
+                            },
+                            '25%': {
+                                left: '-100%'
+                            },
+                            '45%': {
+                                left: '-100%'
+                            },
+                            '50%': {
+                                left: '-200%'
+                            },
+                            '70%': {
+                                left: '-200%'
+                            },
+                            '75%': {
+                                left: '-300%'
+                            },
+                            '95%': {
+                                left: '-300%'
+                            },
+                            '100%': {
+                                left: '-400%'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          /* 用于自定义工具类，一个类对应一条属性设置值 */
+          .w100 {
+            width: 100%; 
+          }
+
+        }
+        @layer components {
+            /* 用于定义一个元素的多个属性值 */
+          .section-h2 {
+            border-bottom: 2px solid #999;
+            padding: 0.2rem 1rem;
+            width: 70%;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+          }
+        }
+        @layer base {
+          /* 用于修改 html 元素如： h1, p 等的设置默认值 */
+        } 
+      </style>
+</head>
+
+<body>
+    <header id="page-header" class="relative">
+        <div class="page-header-content w-[100vw] h-[100vh] text-[#DDD] lg:w-full lg:max-w-[1120px] lg:mx-auto lg:my-0">
+            <nav class="flex justify-between items-center px-[1rem] py-[0.5rem] lg:justify-start lg:gap-[4rem]">
+                <div class="site-logo">
+                    <a class="text-[#DDD] text-[1rem] font-[700]" href="#"><img class="block h-[60px]"
+                            src="images/into-nature.drawio.png" alt="logo"></a>
+                </div>
+                <ul class="site-menu hidden lg:flex lg:justify-start lg:gap-[2rem]">
+                    <li><a class="text-[#DDD] text-[1rem] font-[700] lg:block lg:border lg:border-solid lg:border-[#DDD] lg:px-[1rem] lg:py-[0.5rem] lg:rounded-[5px] lg:hover:bg-[#ddd] lg:hover:text-[#000] transition-[all_0.3s]" href="#">Home</a></li>
+                    <li><a class="text-[#DDD] text-[1rem] font-[700] lg:block lg:border lg:border-solid lg:border-[#DDD] lg:px-[1rem] lg:py-[0.5rem] lg:rounded-[5px] lg:hover:bg-[#ddd] lg:hover:text-[#000] transition-[all_0.3s]" href="#about-us">About Us</a></li>
+                    <li><a class="text-[#DDD] text-[1rem] font-[700] lg:block lg:border lg:border-solid lg:border-[#DDD] lg:px-[1rem] lg:py-[0.5rem] lg:rounded-[5px] lg:hover:bg-[#ddd] lg:hover:text-[#000] transition-[all_0.3s]" href="#achievement">Achivement</a></li>
+                    <li><a class="text-[#DDD] text-[1rem] font-[700] lg:block lg:border lg:border-solid lg:border-[#DDD] lg:px-[1rem] lg:py-[0.5rem] lg:rounded-[5px] lg:hover:bg-[#ddd] lg:hover:text-[#000] transition-[all_0.3s]" href="#popular-locations">Popular Locations</a>
+                    </li>
+                    <li><a class="text-[#DDD] text-[1rem] font-[700] lg:block lg:border lg:border-solid lg:border-[#DDD] lg:px-[1rem] lg:py-[0.5rem] lg:rounded-[5px] lg:hover:bg-[#ddd] lg:hover:text-[#000] transition-[all_0.3s]" href="#testimonials">Testimonials</a></li>
+                </ul>
+                <a class="text-[#DDD] text-[1rem] font-[700] lg:hidden" href="#"><i class="ri-menu-line text-[1.8rem]"></i></a>
+            </nav>
+            <div class="hero absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-center">
+                <h1 class="text-[3rem] font-bold mb-[1rem]">Into Nature</h1>
+                <p class="text-[1.2rem] text-[300] mb-[3rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quisquam, voluptatum.</p>
+                <a href="#"
+                    class="text-[1.2rem] font-bold px-[1rem] py-[0.5rem] bg-white text-[#333] rounded-[5px]">Explore</a>
+            </div>
+        </div>
+        <div
+            class="overlay bg-[url(images/mountain-peak-1.jpg)] h-[100vh] w-[100vw] absolute text-white top-0 left-0 bg-[55%_50%] bg-cover -z-[1] before:content[''] before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgba(0,0,0,0.5)] before:z-[1] md:bg-[65%_50%]">
+        </div>
+    </header>
+    <main id="page-body">
+        <section id="about-us" class="mx-auto my-[3rem] lg:w-full lg:max-w-[992px] lg:m-auto">
+            <h2 class="section-h2">About Us</h2>
+            <div class="flex flex-col mt-[1rem] gap-[1rem] sm:flex-row sm:p-[1rem]">
+                <img class="block max-w-[100%] sm:flex-1 sm:w-[50%] lg:h-[400px] lg:object-cover" src="images/team.jpg" alt="Our Team">
+                <div class="px-[1rem] py-0 sm:flex-1 sm:p-0">
+                    <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ut
+                        doloremque accusantium
+                        assumenda, id nam nobis maxime corrupti! Eos cumque quia maiores consequuntur quod animi,
+                        eveniet dignissimos tempora blanditiis ipsum aliquid quasi, earum, pariatur nam.</p>
+                    <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste,
+                        ducimus temporibus laborum
+                        suscipit numquam soluta incidunt dignissimos. Provident unde necessitatibus sequi esse
+                        voluptatem voluptatibus illum at.</p>
+                </div>
+            </div>
+        </section>
+        <section id="achievement" class="mx-auto my-[3rem] lg:w-full lg:max-w-[960px]">
+            <h2 class="section-h2">Our Achivement</h2>
+            <ul class="flex flex-wrap gap-[1rem] sm:gap-0"> <!-- will be a flex container -->
+                <li class="grow-0 shink-0 basis-[100%] p-[1rem] sm:flex-[0_0_50%] lg:flex-[0_0_25%]"> <!--flex item-->
+                    <div class="text-center rounded-[5px] shadow-[0_2px_10px_2px_#CCC] px-0 py-[1rem]">
+                        <!-- for changing size easily -->
+                        <i class="ri-team-line text-[3rem] text-[#aaa]"></i>
+                        <div class="info">
+                            <h4 class="font-bold">Customers</h4>
+                            <span class="block mt-[0.5rem] text-[1.5rem] text-[600] text-[#999]">5487</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="grow-0 shink-0 basis-[100%] p-[1rem] sm:flex-[0_0_50%] lg:flex-[0_0_25%]">
+                    <div class="text-center rounded-[5px] shadow-[0_2px_10px_2px_#CCC] px-0 py-[1rem]">
+                        <i class="ri-line-chart-line text-[3rem] text-[#AAA]"></i>
+                        <div class="info">
+                            <h4 class="font-bold">Customer Annual Growth Rate</h4>
+                            <span class="block mt-[0.5rem] text-[1.5rem] text-[600] text-[#999]">6.5%</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="grow-0 shink-0 basis-[100%] p-[1rem] sm:flex-[0_0_50%] lg:flex-[0_0_25%]">
+                    <div class="text-center rounded-[5px] shadow-[0_2px_10px_2px_#CCC] px-0 py-[1rem]">
+                        <i class="ri-service-line text-[3rem] text-[#AAA]"></i>
+                        <div class="info">
+                            <h4 class="font-bold">Total Services</h4>
+                            <span class="block mt-[0.5rem] text-[1.5rem] text-[600] text-[#999]">8717</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="grow-0 shink-0 basis-[100%] p-[1rem] sm:flex-[0_0_50%] lg:flex-[0_0_25%]">
+                    <div class="text-center rounded-[5px] shadow-[0_2px_10px_2px_#CCC] px-0 py-[1rem]">
+                        <i class="ri-earth-line text-[3rem] text-[#AAA]"></i>
+                        <div class="info">
+                            <h4 class="font-bold">Serve In Countries</h4>
+                            <span class="block mt-[0.5rem] text-[1.5rem] text-[600] text-[#999]">47</span>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+        <section id="popular-locations" class="my-[3rem] mx-auto xl:w-full xl:max-w-[1200px]">
+            <h2 class="section-h2">Popular Locations</h2>
+            <ul class="flex flex-wrap">
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/lake-1.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 1</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/mountains-1.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 2</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/forest-path-1.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 3</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/lavender-field.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 4</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/beach-1.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 5</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/mountains-2.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 6</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/forest-path-2.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 7</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="fex-[0_0_100%] p-[0.5rem] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%]">
+                    <div class="shadow-[0_0_5px_#ccc]">
+                        <img src="images/lake-2.jpg" alt="">
+                        <div class="p-[1rem]">
+                            <h4 class="text-[1.2rem] mb-[0.5rem] font-bold">Location 8</h4>
+                            <p class="leading-[1.5]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                voluptatum.</p>
+                            <div class="flex justify-between mt-[1rem]">
+                                <div class="stars">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span>18987 reviews</span>
+                            </div>
+                            <a class="inline-block mt-[1.5rem] px-[1rem] py-[0.5rem] border border-solid border-[#ccc] rounded-[5px] text-[#333]"
+                                href="#" class="btn">Explore</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+        <section id="testimonials" class="mx-auto my-[3rem] sm:w-full sm:max-w-[960px]">
+            <h2 class="section-h2">Testimonials</h2>
+            <div class="slider sm:w-full sm:relative sm:overflow-hidden">
+                <div class="flex flex-col gap-[2rem] sm:flex-row sm:gap-0 sm:w-[500%] sm:relative sm:animate-[sliding_20s_ease_infinite]">
+                    <div class="bg-[antiquewhite] px-0 py-[1rem] sm:w-[20%] sm:flex items-center">
+                        <div class="leading-[1.5] px-[1rem] py-0 sm:flex-[0_0_60%]">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur architecto fugit illum
+                                amet commodi totam ratione iure reiciendis nemo, aliquid facere quis mollitia quas
+                                distinctio voluptates impedit, est quibusdam, eius quisquam. Et, facere sapiente.</p>
+                        </div>
+                        <div class="flex gap-[1rem] justify-center items-end sm:flex-[0_0_40%]">
+                            <img class="block mt-[1rem] w-[25%] rounded-[50%]" src="images/male-1.jpeg" alt="">
+                            <div class="testimonial-name">
+                                <h4>Linwood Truman</h4>
+                                <span>CEO of Company</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[antiquewhite] px-0 py-[1rem] sm:w-[20%] sm:flex items-center">
+                        <div class="leading-[1.5] px-[1rem] py-0 sm:flex-[0_0_60%]">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui excepturi nihil, earum
+                                delectus aspernatur iure iste id magnam culpa sit quidem praesentium, nesciunt quibusdam
+                                commodi dignissimos eaque accusamus blanditiis suscipit voluptatibus quod pariatur?</p>
+                        </div>
+                        <div class="flex gap-[1rem] justify-center items-end sm:flex-[0_0_40%]">
+                            <img class="block mt-[1rem] w-[25%] rounded-[50%]" src="images/female-2.jpeg" alt="">
+                            <div class="testimonial-name">
+                                <h4>Wen Mah</h4>
+                                <span>Hotel Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[antiquewhite] px-0 py-[1rem] sm:w-[20%] sm:flex items-center">
+                        <div class="leading-[1.5] px-[1rem] py-0 sm:flex-[0_0_60%]">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur eaque odit minus
+                                molestiae temporibus, aliquid asperiores iusto deleniti neque est quam voluptatem alias
+                                vero consectetur modi? Obcaecati vel dolorum reprehenderit deleniti magnam, optio
+                                asperiores porro voluptatum.</p>
+                        </div>
+                        <div class="flex gap-[1rem] justify-center items-end sm:flex-[0_0_40%]">
+                            <img class="block mt-[1rem] w-[25%] rounded-[50%]" src="images/male-2.jpeg" alt="">
+                            <div class="testimonial-name">
+                                <h4>Johnny Hopson
+                                </h4>
+                                <span>Accountant</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[antiquewhite] px-0 py-[1rem] sm:w-[20%] sm:flex items-center">
+                        <div class="leading-[1.5] px-[1rem] py-0 sm:flex-[0_0_60%]">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima tempore ducimus
+                                necessitatibus voluptatem quis deleniti iusto? Illum assumenda harum reprehenderit
+                                consequatur maxime voluptatibus.</p>
+                        </div>
+                        <div class="flex gap-[1rem] justify-center items-end sm:flex-[0_0_40%]">
+                            <img class="block mt-[1rem] w-[25%] rounded-[50%]" src="images/female-1.jpeg" alt="">
+                            <div class="testimonial-name">
+                                <h4>Augusta Hodgson
+                                </h4>
+                                <span>Pediatrician</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[antiquewhite] px-0 py-[1rem] hidden sm:block sm:w-[20%] sm:flex items-center">
+                        <div class="leading-[1.5] px-[1rem] py-0 sm:flex-[0_0_60%]">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur architecto fugit illum
+                                amet commodi totam ratione iure reiciendis nemo, aliquid facere quis mollitia quas
+                                distinctio voluptates impedit, est quibusdam, eius quisquam. Et, facere sapiente.</p>
+                        </div>
+                        <div class="flex gap-[1rem] justify-center items-end">
+                            <img class="block mt-[1rem] w-[25%] rounded-[50%]" src="images/male-1.jpeg" alt="">
+                            <div class="testimonial-name">
+                                <h4>Linwood Truman</h4>
+                                <span>CEO of Company</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="page-footer" class="bg-graybg mt-[3rem]">
+        <div class="flex flex-col gap-[1rem] p-[1rem]">
+            <div class="flex flex-col gap-[1rem] ml-[1rem] leading-[1.5] sm:flex-row sm:justify-center sm:gap-[6rem] md:gap-[12rem] lg:gap-[16rem]">
+                <ul>
+                    <li><a class="text-[#ddd]" href="#">About</a></li>
+                    <li><a class="text-[#ddd]" href="#">Destinations</a></li>
+                    <li><a class="text-[#ddd]" href="#">Hotels</a></li>
+                    <li><a class="text-[#ddd]" href="#">Tours</a></li>
+                    <li><a class="text-[#ddd]" href="#">Blog</a></li>
+                    <li><a class="text-[#ddd]" href="#">Contact</a></li>
+                </ul>
+                <ul>
+                    <li><a class="text-[#ddd]" href="#">Careers</a></li>
+                    <li><a class="text-[#ddd]" href="#">Privacy Policy</a></li>
+                    <li><a class="text-[#ddd]" href="#">Terms & Conditions</a></li>
+                    <li><a class="text-[#ddd]" href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="flex justify-center text-[1.5rem] gap-[1rem]">
+                <a class="text-[#ddd]" href="#"><i class="ri-facebook-fill"></i></a>
+                <a class="text-[#ddd]" href="#"><i class="ri-instagram-fill"></i></a>
+                <a class="text-[#ddd]" href="#"><i class="ri-twitter-fill"></i></a>
+                <a class="text-[#ddd]" href="#"><i class="ri-youtube-fill"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
